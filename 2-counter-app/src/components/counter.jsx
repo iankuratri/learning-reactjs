@@ -14,16 +14,31 @@ class Counter extends Component {
   //   fontWeight: "bold"
   // };
 
-  renderTages() {
-    if (!this.state.tags.length) return <p>There are not tags!</p>;
-    return (
-      <ul>
-        {this.state.tags.map(tag => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-    );
-  }
+  // renderTages() {
+  //   if (!this.state.tags.length) return <p>There are not tags!</p>;
+  //   return (
+  //     <ul>
+  //       {this.state.tags.map(tag => (
+  //         <li key={tag}>{tag}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
+
+  // constructor() {
+  // super();
+  // // this is not allowed before super
+  // // solution to bind event handlers to this
+  // this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+
+  handleIncrement = product => {
+    console.log("product:", product);
+
+    // console.log("Increment Clicked", this.state.count);
+    // to change the state (to make react js aware of state changes)
+    this.setState({ count: this.state.count + 1 });
+  };
 
   render() {
     return (
@@ -33,17 +48,27 @@ class Counter extends Component {
         {/* or oyu can use inline styles like that style={ {fontSize: 50, fontWeight: "bold"} } */}
         {/* style={this.styles} */}
 
-        {/* <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
 
+        <button
+          // onClick={this.handleIncrement}
+          // for passing event or argument to a function
+          onClick={() => this.handleIncrement({ id: 1 })}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+
+        {/* 
         <ul>
           {this.state.tags.map(tag => (
             <li key={tag}>{tag}</li>
           ))}
-        </ul> */}
+        </ul> 
 
         {!this.state.tags.length && "Please create a new tag!"}
         {this.renderTages()}
+        */}
       </div>
     );
   }
