@@ -2,11 +2,11 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
-    imageUrl: "https://picsum.photos/200",
+    value: this.props.counter.value
+    // imageUrl: "https://picsum.photos/200",
 
     // for rendering tags
-    tags: ["tag1", "tag2", "tag3"]
+    // tags: ["tag1", "tag2", "tag3"]
   };
 
   // styles = {
@@ -32,31 +32,40 @@ class Counter extends Component {
   // this.handleIncrement = this.handleIncrement.bind(this);
   // }
 
-  handleIncrement = product => {
-    console.log("product:", product);
-
-    // console.log("Increment Clicked", this.state.count);
+  handleIncrement = () => {
+    // console.log("product:", product);
+    // console.log("Increment Clicked", this.state.value);
     // to change the state (to make react js aware of state changes)
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   render() {
     return (
       // wrap the code inside a div or React.Fragment
-      <div>
+      <div className="m-3">
         {/* <img src={this.state.imageUrl} /> */}
         {/* or oyu can use inline styles like that style={ {fontSize: 50, fontWeight: "bold"} } */}
         {/* style={this.styles} */}
+
+        {/* Show children prop */}
+        {/* {this.props.children} */}
 
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
 
         <button
           // onClick={this.handleIncrement}
           // for passing event or argument to a function
-          onClick={() => this.handleIncrement({ id: 1 })}
+          onClick={() => this.handleIncrement()}
           className="btn btn-secondary btn-sm"
         >
           Increment
+        </button>
+
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm ml-2"
+        >
+          Delete
         </button>
 
         {/* 
@@ -75,13 +84,13 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
-    return count === 0 ? "Zero" : count;
+    const { value } = this.state;
+    return value === 0 ? "Zero" : value;
   }
 }
 
