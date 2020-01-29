@@ -42,7 +42,7 @@ class Counter extends Component {
   render() {
     return (
       // wrap the code inside a div or React.Fragment
-      <div className="m-3">
+      <div>
         {/* <img src={this.state.imageUrl} /> */}
         {/* or oyu can use inline styles like that style={ {fontSize: 50, fontWeight: "bold"} } */}
         {/* style={this.styles} */}
@@ -56,14 +56,14 @@ class Counter extends Component {
           // onClick={this.handleIncrement}
           // for passing event or argument to a function
           onClick={() => this.props.onIncrement(this.props.counter)}
-          className="btn btn-secondary btn-sm"
+          className="btn btn-secondary btn-sm m-2"
         >
           Increment
         </button>
 
         <button
           onClick={() => this.props.onDelete(this.props.counter.id)}
-          className="btn btn-danger btn-sm ml-2"
+          className="btn btn-danger btn-sm m-2"
         >
           Delete
         </button>
