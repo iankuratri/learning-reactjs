@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = {
-    value: this.props.counter.value
-    // imageUrl: "https://picsum.photos/200",
+  // state = {
+  //   value: this.props.counter.value
+  // imageUrl: "https://picsum.photos/200",
 
-    // for rendering tags
-    // tags: ["tag1", "tag2", "tag3"]
-  };
+  // for rendering tags
+  // tags: ["tag1", "tag2", "tag3"]
+  // };
 
   // styles = {
   //   fontSize: 50,
@@ -32,12 +32,12 @@ class Counter extends Component {
   // this.handleIncrement = this.handleIncrement.bind(this);
   // }
 
-  handleIncrement = () => {
-    // console.log("product:", product);
-    // console.log("Increment Clicked", this.state.value);
-    // to change the state (to make react js aware of state changes)
-    this.setState({ value: this.state.value + 1 });
-  };
+  // handleIncrement = () => {
+  // console.log("product:", product);
+  // console.log("Increment Clicked", this.state.value);
+  // to change the state (to make react js aware of state changes)
+  //   this.setState({ value: this.state.value + 1 });
+  // };
 
   render() {
     return (
@@ -55,7 +55,7 @@ class Counter extends Component {
         <button
           // onClick={this.handleIncrement}
           // for passing event or argument to a function
-          onClick={() => this.handleIncrement()}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -84,12 +84,12 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { value } = this.state;
+    const { value } = this.props.counter;
     return value === 0 ? "Zero" : value;
   }
 }
