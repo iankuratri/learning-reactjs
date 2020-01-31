@@ -39,14 +39,24 @@ class Counter extends Component {
   //   this.setState({ value: this.state.value + 1 });
   // };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Counter - componentDidUpdate");
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+  }
+
+  componentWillUnmount() {
+    console.log("Counter - componentWillUnmount");
+  }
+
   render() {
-    const { counter, onDelete, onIncrement } = this.props;
+    const { counter, onDelete, onIncrement, onDecrement } = this.props;
 
     // console.log("counter", counter);
 
     return (
       // wrap the code inside a div or React.Fragment
-      <div>
+      <div className="row">
         {/* <img src={this.state.imageUrl} /> */}
         {/* or oyu can use inline styles like that style={ {fontSize: 50, fontWeight: "bold"} } */}
         {/* style={this.styles} */}
@@ -54,23 +64,35 @@ class Counter extends Component {
         {/* Show children prop */}
         {/* {this.props.children} */}
 
-        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        <div className="col-1">
+          <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        </div>
 
-        <button
-          // onClick={this.handleIncrement}
-          // for passing event or argument to a function
-          onClick={() => onIncrement(counter)}
-          className="btn btn-secondary btn-sm m-2"
-        >
-          Increment
-        </button>
+        <div className="col-1">
+          <button
+            // onClick={this.handleIncrement}
+            // for passing event or argument to a function
+            onClick={() => onIncrement(counter)}
+            className="btn btn-secondary btn-sm m-2"
+          >
+            +
+          </button>
 
-        <button
-          onClick={() => onDelete(counter.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
-        </button>
+          <button
+            disabled={counter.value <= 0}
+            onClick={() => onDecrement(counter)}
+            className="btn btn-secondary btn-sm m-2"
+          >
+            -
+          </button>
+
+          <button
+            onClick={() => onDelete(counter.id)}
+            className="btn btn-danger btn-sm m-2"
+          >
+            x
+          </button>
+        </div>
 
         {/* 
         <ul>
