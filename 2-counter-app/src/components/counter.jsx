@@ -40,6 +40,10 @@ class Counter extends Component {
   // };
 
   render() {
+    const { counter, onDelete, onIncrement } = this.props;
+
+    // console.log("counter", counter);
+
     return (
       // wrap the code inside a div or React.Fragment
       <div>
@@ -55,14 +59,14 @@ class Counter extends Component {
         <button
           // onClick={this.handleIncrement}
           // for passing event or argument to a function
-          onClick={() => this.props.onIncrement(this.props.counter)}
+          onClick={() => onIncrement(counter)}
           className="btn btn-secondary btn-sm m-2"
         >
           Increment
         </button>
 
         <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
+          onClick={() => onDelete(counter.id)}
           className="btn btn-danger btn-sm m-2"
         >
           Delete
