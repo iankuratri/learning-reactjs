@@ -2,16 +2,40 @@ import React from "react";
 import Like from "./like";
 
 const MoviesTable = props => {
-  const { movies, onLike, onDelete } = props;
+  const { movies, onLike, onDelete, onSort } = props;
 
   return (
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Genre</th>
-          <th scope="col">Stock</th>
-          <th scope="col">Rate</th>
+          <th
+            scope="col"
+            style={{ cursor: "pointer" }}
+            onClick={() => onSort("title")}
+          >
+            Title
+          </th>
+          <th
+            scope="col"
+            style={{ cursor: "pointer" }}
+            onClick={() => onSort("genre.name")}
+          >
+            Genre
+          </th>
+          <th
+            scope="col"
+            style={{ cursor: "pointer" }}
+            onClick={() => onSort("numberInStock")}
+          >
+            Stock
+          </th>
+          <th
+            scope="col"
+            style={{ cursor: "pointer" }}
+            onClick={() => onSort("dailyRentalRate")}
+          >
+            Rate
+          </th>
           <th scope="col"></th>
           <th scope="col"></th>
         </tr>
