@@ -3,7 +3,7 @@ import { paginate } from "../utils/paginate";
 import { getGenres } from "./../services/fakeGenreService";
 import { getMovies } from "./../services/fakeMovieService";
 import ListGroup from "./common/listGroup";
-import MoviesTable from "./common/moviesTable";
+import MoviesTable from "./moviesTable";
 import Paginator from "./common/paginator";
 import _ from "lodash";
 
