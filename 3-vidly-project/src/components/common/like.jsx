@@ -1,10 +1,10 @@
 import React from "react";
 
-const Like = props => {
+const Like = ({ isLiked, onClick }) => {
   let classes = "clickable fa fa-heart";
-  if (!props.isLiked) classes += "-o";
+  if (!isLiked) classes += "-o";
 
-  return <i className={classes} aria-hidden="true" onClick={props.onClick}></i>;
+  return <i className={classes} aria-hidden="true" onClick={onClick}></i>;
 };
 
 export default Like;
