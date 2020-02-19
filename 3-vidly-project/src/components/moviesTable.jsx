@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 
 class MoviesTable extends Component {
   columns = [
-    // { label: "Title", path: "title" },
     {
       label: "Title",
       path: "title",
-      content: movie => <Link to={`/movie/${movie._id}`}>{movie.title}</Link>
+      content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
     },
     { label: "Genre", path: "genre.name" },
     { label: "Stock", path: "numberInStock" },

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class MovieInfo extends Component {
+class MovieForm extends Component {
   handleSave = () => {
     this.props.history.replace("/movies");
   };
@@ -18,4 +18,4 @@ class MovieInfo extends Component {
   }
 }
 
-export default MovieInfo;
+export default MovieForm;
