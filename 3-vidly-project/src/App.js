@@ -1,29 +1,29 @@
 import React from "react";
-// import logo from "./logo.svg";
-import Movies from "./components/movies";
 import "./App.css";
+import NavBar from "./components/navBar";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Movies from "./components/movies";
+import Customers from "./components/customers";
+import Rentals from "./components/rentals";
+import NotFound from "./components/notFound";
+import MovieInfo from "./components/movieInfo";
 
 function App() {
   return (
-    <main className="container">
-      <Movies />
-    </main>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    <div>
+      <NavBar />
+      <div className="container">
+        <Switch>
+          <Route path="/movies" component={Movies} />
+          <Route path="/movie/:id" component={MovieInfo} />
+          <Route path="/customers" component={Customers} />
+          <Route path="/rentals" component={Rentals} />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect from="/" exact to="/movies" />
+          <Redirect to="/not-found" />
+        </Switch>
+      </div>
+    </div>
   );
 }
 
