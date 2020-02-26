@@ -6,6 +6,7 @@ import ListGroup from "./common/listGroup";
 import MoviesTable from "./moviesTable";
 import Paginator from "./common/paginator";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 
 class Movies extends Component {
   state = {
@@ -96,6 +97,10 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
+          <Link to="/movies/new" className="btn btn-primary mb-3">
+            New Movie
+          </Link>
+
           <p>Showing {totalCount} movies from the database.</p>
 
           <MoviesTable
