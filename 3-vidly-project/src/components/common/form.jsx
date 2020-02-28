@@ -66,12 +66,12 @@ class Form extends Component {
 
     return (
       <Select
-        label={label}
         name={name}
-        options={options}
-        error={errors[name]}
         value={data[name]}
+        label={label}
+        options={options}
         onChange={this.handleChange}
+        error={errors[name]}
       />
     );
   }
