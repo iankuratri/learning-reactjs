@@ -1,32 +1,32 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "./App.css";
+import _http from "./services/httpService";
 
 const apiEndpoint = "https://jsonplaceholder.typicode.com/posts";
 
 class App extends Component {
   state = {
-    posts: []
+    posts: [],
   };
 
   async componentDidMount() {
-    const { data: posts } = await axios.get(apiEndpoint);
+    const { data: posts } = await _http.get(apiEndpoint);
 
     this.setState({ posts });
   }
 
   handleAdd = async () => {
     const obj = { title: "new post", body: "this is my new post" };
-    const { data: post } = await axios.post(apiEndpoint, obj);
+    const { data: post } = await _http.post(apiEndpoint, obj);
 
     const posts = [post, ...this.state.posts];
     this.setState({ posts });
   };
 
-  handleUpdate = async post => {
+  handleUpdate = async (post) => {
     post.title = "Updated post";
 
-    await axios.put(`${apiEndpoint}/${post.id}`, post);
+    await _http.put(`${apiEndpoint}/${post.id}`, post);
 
     const posts = [...this.state.posts];
     const index = posts.indexOf(post);
@@ -34,14 +34,14 @@ class App extends Component {
     this.setState({ posts });
   };
 
-  handleDelete = async post => {
+  handleDelete = async (post) => {
     const originalPosts = this.state.posts;
 
-    const posts = this.state.posts.filter(p => p.id !== post.id);
+    const posts = this.state.posts.filter((p) => p.id !== post.id);
     this.setState({ posts });
 
     try {
-      await axios.delete(`${apiEndpoint}/${post.id}`);
+      await _http.delete(`${apiEndpoint}/${post.id}`);
       // throw new Error("");
     } catch (ex) {
       // ex.response - this property is set when we successfuly get a response from the server otherwise null
@@ -54,10 +54,12 @@ class App extends Component {
 
       if (ex.response && ex.response.status === 404) {
         alert("This post has already been deleted.");
-      } else {
-        console.log("Logging the error", ex);
-        alert("An unexpected error occurred.");
       }
+      // moved to axios error handling
+      // else {
+      //   console.log("Logging the error", ex);
+      //   alert("An unexpected error occurred.");
+      // }
       this.setState({ posts: originalPosts });
     }
   };
@@ -77,7 +79,7 @@ class App extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.posts.map(post => (
+            {this.state.posts.map((post) => (
               <tr key={post.id}>
                 <td>{post.title}</td>
                 <td>
