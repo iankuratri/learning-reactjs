@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { paginate } from "../utils/paginate";
-import { getGenres } from "./../services/fakeGenreService";
-import { getMovies } from "./../services/fakeMovieService";
+import { getGenres } from "./../services/genreService";
+import { getMovies } from "./../services/movieService";
 import ListGroup from "./common/listGroup";
 import MoviesTable from "./moviesTable";
 import Paginator from "./common/paginator";
@@ -17,20 +17,23 @@ class Movies extends Component {
     currentPage: 1,
     sortColumn: { path: "title", order: "asc" },
     searchQuery: "",
-    selectedGenre: null
+    selectedGenre: null,
   };
 
-  componentDidMount() {
-    const genres = [{ _id: "", name: "All Genres" }, ...getGenres()];
-    this.setState({ movies: getMovies(), genres });
+  async componentDidMount() {
+    const { data: genre } = await getGenres();
+    const genres = [{ _id: "", name: "All Genres" }, ...genre];
+
+    const { data: movies } = await getMovies();
+    this.setState({ movies, genres });
   }
 
-  handleDelete = movie => {
-    const movies = this.state.movies.filter(m => m._id !== movie._id);
+  handleDelete = (movie) => {
+    const movies = this.state.movies.filter((m) => m._id !== movie._id);
     this.setState({ movies });
   };
 
-  handleLike = movie => {
+  handleLike = (movie) => {
     const movies = [...this.state.movies];
     const index = movies.indexOf(movie);
     movies[index] = { ...movie };
@@ -39,19 +42,19 @@ class Movies extends Component {
     this.setState({ movies });
   };
 
-  handlePageChange = currentPage => {
+  handlePageChange = (currentPage) => {
     this.setState({ currentPage });
   };
 
-  handleGenreSelect = genre => {
+  handleGenreSelect = (genre) => {
     this.setState({ selectedGenre: genre, searchQuery: "", currentPage: 1 });
   };
 
-  handleSort = sortColumn => {
+  handleSort = (sortColumn) => {
     this.setState({ sortColumn });
   };
 
-  handleSearch = query => {
+  handleSearch = (query) => {
     this.setState({ searchQuery: query, selectedGenre: null, currentPage: 1 });
   };
 
@@ -62,17 +65,19 @@ class Movies extends Component {
       movies: allMovies,
       selectedGenre,
       sortColumn,
-      searchQuery
+      searchQuery,
     } = this.state;
 
     let filteredMovies = allMovies;
 
     if (searchQuery) {
-      filteredMovies = allMovies.filter(m =>
+      filteredMovies = allMovies.filter((m) =>
         m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
       );
     } else if (selectedGenre && selectedGenre._id) {
-      filteredMovies = allMovies.filter(m => m.genre._id === selectedGenre._id);
+      filteredMovies = allMovies.filter(
+        (m) => m.genre._id === selectedGenre._id
+      );
     }
 
     const sortedMovies = _.orderBy(
@@ -94,7 +99,7 @@ class Movies extends Component {
       genres,
       selectedGenre,
       sortColumn,
-      searchQuery
+      searchQuery,
     } = this.state;
 
     if (count === 0) return <p>There are no movies in the database.</p>;
