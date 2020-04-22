@@ -6,7 +6,7 @@ const Select = ({ name, label, options, error, ...rest }) => {
       <label htmlFor={name}>{label}</label>
       <select name={name} id={name} {...rest} className="custom-select">
         <option value="">Choose from the list...</option>
-        {options.map(option => (
+        {options.map((option) => (
           <option value={option._id} key={option._id}>
             {option.name}
           </option>

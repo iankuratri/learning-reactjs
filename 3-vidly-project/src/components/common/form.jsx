@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
 import Select from "./select";
+import Radio from "./radio";
 
 class Form extends Component {
   state = { data: {}, errors: {} };
@@ -17,7 +18,7 @@ class Form extends Component {
     return errors;
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     const errors = this.validate();
@@ -72,6 +73,21 @@ class Form extends Component {
         options={options}
         onChange={this.handleChange}
         error={errors[name]}
+      />
+    );
+  }
+
+  renderRadio(name, label, options) {
+    const { data, errors } = this.state;
+
+    return (
+      <Radio
+        name={name}
+        label={label}
+        value={data[name]}
+        options={options}
+        error={errors[name]}
+        onChange={this.handleChange}
       />
     );
   }

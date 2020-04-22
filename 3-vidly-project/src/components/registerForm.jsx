@@ -6,14 +6,19 @@ import auth from "./../services/authService";
 
 class RegisterForm extends Form {
   state = {
-    data: { username: "", password: "", name: "" },
+    data: { username: "", password: "", name: "", isAdmin: "user" },
     errors: {},
+    radio: [
+      { value: "user", label: "User", id: 1 },
+      { value: "admin", label: "Admin", id: 2 },
+    ],
   };
 
   schema = {
     username: Joi.string().email().required().label("Username"),
     password: Joi.string().min(5).required().label("Password"),
     name: Joi.string().required().label("Name"),
+    isAdmin: Joi.string().required().label("Role"),
   };
 
   doSubmit = async () => {
@@ -41,6 +46,7 @@ class RegisterForm extends Form {
           {this.renderInput("username", "Username")}
           {this.renderInput("password", "Password", "password")}
           {this.renderInput("name", "Name")}
+          {this.renderRadio("isAdmin", "Role", this.state.radio)}
           {this.renderButton("Register")}
         </form>
       </div>

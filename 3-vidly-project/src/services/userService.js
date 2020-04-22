@@ -8,6 +8,7 @@ export function register(user) {
     email: user.username,
     name: user.name,
     password: user.password,
+    isAdmin: !!(user.isAdmin === "admin"),
   };
 
   return _http.post(apiEndPoint, body);
