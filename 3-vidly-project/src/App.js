@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import ProtectedRoute from "./components/common/protectedRoute";
 import Customers from "./components/customers";
 import LoginForm from "./components/loginForm";
 import Logout from "./components/logout";
@@ -23,6 +24,8 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.state;
+
     return (
       <React.Fragment>
         <ToastContainer />
@@ -32,8 +35,11 @@ class App extends Component {
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
-            <Route path="/movies/:id" component={MovieForm} />
-            <Route path="/movies" component={Movies} />
+            <ProtectedRoute path="/movies/:id" component={MovieForm} />
+            <Route
+              path="/movies"
+              render={(props) => <Movies {...props} user={user} />}
+            />
             <Route path="/customers" component={Customers} />
             <Route path="/rentals" component={Rentals} />
             <Route path="/not-found" component={NotFound} />
