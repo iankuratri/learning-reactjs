@@ -6,6 +6,7 @@ import Login from "./context/Login";
 // import Users from "./hooks/users";
 import MoviesPage from "./context/MoviesPage";
 import UserContext from "./context/userContext";
+import CartContext from "./context/cartContext";
 
 class App extends Component {
   state = { currentUser: null };
@@ -17,17 +18,19 @@ class App extends Component {
 
   render() {
     return (
-      <UserContext.Provider
-        value={{
-          currentUser: this.state.currentUser,
-          onLoggedIn: this.handleLoggedIn,
-        }}
-      >
-        <div>
-          <MoviesPage />
-          <Login />
-        </div>
-      </UserContext.Provider>
+      <CartContext.Provider value={{ cart: [] }}>
+        <UserContext.Provider
+          value={{
+            currentUser: this.state.currentUser,
+            onLoggedIn: this.handleLoggedIn,
+          }}
+        >
+          <div>
+            <MoviesPage />
+            <Login />
+          </div>
+        </UserContext.Provider>
+      </CartContext.Provider>
     );
   }
 }
