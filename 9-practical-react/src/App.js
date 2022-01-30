@@ -7,11 +7,16 @@ import { Navigation } from "./components/Navigation";
 function App() {
   return (
     <main>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/icons" element={<Icons />} />
-      </Routes>
+      <aside>
+        <Navigation />
+      </aside>
+
+      <section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/icons" element={<Icons />} />
+        </Routes>
+      </section>
     </main>
   );
 }

@@ -19,9 +19,18 @@ main {
   height: 100vh;
 }
 
-nav {
+aside,
+section {
+  padding: 20px;
+}
+
+aside {
   background-color: lightgray;
   width: 200px;
+}
+
+nav {
+  height: 100%;
 }
 
 nav .active {
@@ -32,6 +41,7 @@ nav .active {
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
   text-align: center;
 }
 
