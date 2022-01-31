@@ -17,6 +17,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/modal">Modal</NavLink>
         </li>
+        <li>
+          <NavLink to="/tooltip">Tooltip</NavLink>
+        </li>
       </ul>
     </nav>
   );

@@ -7,6 +7,7 @@ import { Icons } from "./components/Icons";
 import { ModalComponent } from "./components/Modal";
 import { Navigation } from "./components/Navigation";
 import { ToastNotifications } from "./components/ToastNotifications";
+import { Tooltip } from "./components/Tooltip";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/icons" element={<Icons />} />
           <Route path="/toast-notifications" element={<ToastNotifications />} />
           <Route path="/modal" element={<ModalComponent />} />
+          <Route path="/tooltip" element={<Tooltip />} />
         </Routes>
       </section>
     </main>
