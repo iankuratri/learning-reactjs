@@ -14,6 +14,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/toast-notifications">Toast Notifications</NavLink>
         </li>
+        <li>
+          <NavLink to="/modal">Modal</NavLink>
+        </li>
       </ul>
     </nav>
   );

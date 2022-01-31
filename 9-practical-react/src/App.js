@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { Home } from "./components/Home";
 import { Icons } from "./components/Icons";
+import { Modal } from "./components/Modal";
 import { Navigation } from "./components/Navigation";
 import { ToastNotifications } from "./components/ToastNotifications";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/icons" element={<Icons />} />
           <Route path="/toast-notifications" element={<ToastNotifications />} />
+          <Route path="/modal" element={<Modal />} />
         </Routes>
       </section>
     </main>
