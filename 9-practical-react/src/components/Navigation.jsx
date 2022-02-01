@@ -20,6 +20,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/tooltip">Tooltip</NavLink>
         </li>
+        <li>
+          <NavLink to="/countup">CountUp</NavLink>
+        </li>
       </ul>
     </nav>
   );
