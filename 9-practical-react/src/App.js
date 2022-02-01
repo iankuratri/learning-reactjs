@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import { CountUp } from "./components/CountUp";
+import { CountUpComponent } from "./components/CountUp";
 import { Home } from "./components/Home";
 import { Icons } from "./components/Icons";
 import { ModalComponent } from "./components/Modal";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/toast-notifications" element={<ToastNotifications />} />
           <Route path="/modal" element={<ModalComponent />} />
           <Route path="/tooltip" element={<Tooltip />} />
-          <Route path="/countup" element={<CountUp />} />
+          <Route path="/countup" element={<CountUpComponent />} />
         </Routes>
       </section>
     </main>
