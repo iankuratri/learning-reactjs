@@ -23,7 +23,6 @@ export const Navigation = () => {
         <li>
           <NavLink to="/countup">CountUp</NavLink>
         </li>
-
         <li>
           <NavLink to="/idle-timer">Idle Timer</NavLink>
         </li>

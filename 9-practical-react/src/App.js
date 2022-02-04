@@ -5,7 +5,7 @@ import "./App.css";
 import { CountUpComponent } from "./components/CountUp";
 import { Home } from "./components/Home";
 import { Icons } from "./components/Icons";
-import { IdleTimer } from "./components/IdleTimer";
+import { IdleTimerComponent } from "./components/IdleTimer";
 import { ModalComponent } from "./components/Modal";
 import { Navigation } from "./components/Navigation";
 import { ToastNotifications } from "./components/ToastNotifications";
@@ -27,7 +27,7 @@ function App() {
           <Route path="/modal" element={<ModalComponent />} />
           <Route path="/tooltip" element={<Tooltip />} />
           <Route path="/countup" element={<CountUpComponent />} />
-          <Route path="/idle-timer" element={<IdleTimer />} />
+          <Route path="/idle-timer" element={<IdleTimerComponent />} />
         </Routes>
       </section>
     </main>
