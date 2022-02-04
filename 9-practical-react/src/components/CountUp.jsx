@@ -8,7 +8,6 @@ export const CountUpComponent = () => {
     start: 0,
     end: 1234567,
     duration: 5,
-    startOnMount: false,
   });
 
   return (
