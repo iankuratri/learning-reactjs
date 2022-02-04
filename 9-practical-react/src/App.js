@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import { ColorPicker } from "./components/ColorPicker";
 import { CountUpComponent } from "./components/CountUp";
 import { Home } from "./components/Home";
 import { Icons } from "./components/Icons";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/tooltip" element={<Tooltip />} />
           <Route path="/countup" element={<CountUpComponent />} />
           <Route path="/idle-timer" element={<IdleTimerComponent />} />
+          <Route path="/color-picker" element={<ColorPicker />} />
         </Routes>
       </section>
     </main>

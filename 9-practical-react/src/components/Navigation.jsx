@@ -26,6 +26,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/idle-timer">Idle Timer</NavLink>
         </li>
+        <li>
+          <NavLink to="/color-picker">Color Picker</NavLink>
+        </li>
       </ul>
     </nav>
   );
