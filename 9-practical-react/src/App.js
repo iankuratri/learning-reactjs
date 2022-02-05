@@ -12,7 +12,7 @@ import { Navigation } from "./components/Navigation";
 import { ToastNotifications } from "./components/ToastNotifications";
 import { Tooltip } from "./components/Tooltip";
 import { CreditCards } from "./components/CreditCards";
-import { DatePicker } from "./components/DatePicker";
+import { DatePickerComponent } from "./components/DatePicker";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           <Route path="/idle-timer" element={<IdleTimerComponent />} />
           <Route path="/color-picker" element={<ColorPicker />} />
           <Route path="/credit-cards" element={<CreditCards />} />
-          <Route path="/date-picker" element={<DatePicker />} />
+          <Route path="/date-picker" element={<DatePickerComponent />} />
         </Routes>
       </section>
     </main>
