@@ -11,6 +11,7 @@ import { ModalComponent } from "./components/Modal";
 import { Navigation } from "./components/Navigation";
 import { ToastNotifications } from "./components/ToastNotifications";
 import { Tooltip } from "./components/Tooltip";
+import { CreditCards } from "./components/CreditCards";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/countup" element={<CountUpComponent />} />
           <Route path="/idle-timer" element={<IdleTimerComponent />} />
           <Route path="/color-picker" element={<ColorPicker />} />
+          <Route path="/credit-cards" element={<CreditCards />} />
         </Routes>
       </section>
     </main>

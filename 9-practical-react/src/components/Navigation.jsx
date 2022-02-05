@@ -29,6 +29,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/color-picker">Color Picker</NavLink>
         </li>
+        <li>
+          <NavLink to="/credit-cards">Credit Cards</NavLink>
+        </li>
       </ul>
     </nav>
   );
