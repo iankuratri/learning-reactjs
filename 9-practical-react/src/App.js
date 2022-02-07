@@ -13,6 +13,7 @@ import { ToastNotifications } from "./components/ToastNotifications";
 import { Tooltip } from "./components/Tooltip";
 import { CreditCards } from "./components/CreditCards";
 import { DatePickerComponent } from "./components/DatePicker";
+import { VideoPlayer } from "./components/VideoPlayer";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/color-picker" element={<ColorPicker />} />
           <Route path="/credit-cards" element={<CreditCards />} />
           <Route path="/date-picker" element={<DatePickerComponent />} />
+          <Route path="/video-player" element={<VideoPlayer />} />
         </Routes>
       </section>
     </main>

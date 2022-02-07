@@ -35,6 +35,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/date-picker">Date Picker</NavLink>
         </li>
+        <li>
+          <NavLink to="/video-player">Video Player</NavLink>
+        </li>
       </ul>
     </nav>
   );
