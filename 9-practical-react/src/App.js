@@ -14,6 +14,7 @@ import { Tooltip } from "./components/Tooltip";
 import { CreditCards } from "./components/CreditCards";
 import { DatePickerComponent } from "./components/DatePicker";
 import { VideoPlayer } from "./components/VideoPlayer";
+import { LoadingIndicators } from "./components/LoadingIndicators";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/credit-cards" element={<CreditCards />} />
           <Route path="/date-picker" element={<DatePickerComponent />} />
           <Route path="/video-player" element={<VideoPlayer />} />
+          <Route path="/loading-indicators" element={<LoadingIndicators />} />
         </Routes>
       </section>
     </main>

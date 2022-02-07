@@ -38,6 +38,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/video-player">Video Player</NavLink>
         </li>
+        <li>
+          <NavLink to="/loading-indicators">Loading Indicators</NavLink>
+        </li>
       </ul>
     </nav>
   );
