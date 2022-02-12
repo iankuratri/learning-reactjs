@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Button } from "./components/Button";
+import { Container } from "./components/Container";
 import { Greet } from "./components/Greet";
 import { Heading } from "./components/Heading";
 import { Input } from "./components/Input";
@@ -31,7 +32,7 @@ function App() {
   ];
 
   return (
-    <div className="App">
+    <div>
       {/* 
       <Person name={personName} />
       <PersonList names={personList} />
@@ -43,7 +44,6 @@ function App() {
       <Oscar>
         <Heading>Oscar goes to Leonardo Dicpario!</Heading>
       </Oscar> 
-      */}
 
       <Button
         handleClick={(event, id) => {
@@ -58,6 +58,9 @@ function App() {
           console.log(event.target.value);
         }}
       />
+      */}
+
+      <Container styles={{ border: "1px solid black", padding: "1rem" }} />
     </div>
   );
 }
