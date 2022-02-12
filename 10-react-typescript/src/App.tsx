@@ -34,7 +34,6 @@ function App() {
   return (
     <div>
       {/* 
-      <Person name={personName} />
       <PersonList names={personList} />
       <Status status="loading" />
       <Greet name="Ankur" isLoggedIn={false} />
