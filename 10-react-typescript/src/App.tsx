@@ -14,8 +14,9 @@ import { Person } from "./components/Person";
 import { PersonList } from "./components/PersonList";
 import { DomRef } from "./components/ref/DomRef";
 import { MutableRef } from "./components/ref/MutableRef";
-import { Counter } from "./components/state/Counter";
+// import { Counter } from "./components/state/Counter";
 import { Status } from "./components/Status";
+import Counter from "./components/class/Counter";
 
 function App() {
   const personName = {
@@ -78,9 +79,11 @@ function App() {
       </UserContextProvider>
       
       <DomRef />
-      */}
 
       <MutableRef />
+      */}
+
+      <Counter message="The count is" />
     </div>
   );
 }
