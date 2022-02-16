@@ -21,6 +21,7 @@ import { Private } from "./components/auth/Private";
 import { Profile } from "./components/auth/Profile";
 import { List } from "./components/generics/List";
 import { RandomNumber } from "./components/restriction/RandomNumber";
+import { Toast } from "./components/template-literals/Toast";
 
 function App() {
   const personName = {
@@ -96,9 +97,11 @@ function App() {
       />
 
       <List items={[100, 200, 300]} onClick={(item) => console.log(item)} />
-      */}
 
       <RandomNumber value={10} isPositive />
+      */}
+
+      <Toast position="center-bottom" />
     </div>
   );
 }
