@@ -23,6 +23,7 @@ import { List } from "./components/generics/List";
 import { RandomNumber } from "./components/restriction/RandomNumber";
 import { Toast } from "./components/template-literals/Toast";
 import { CustomButton } from "./components/html/Button";
+import { Text } from "./components/polymorphic/Text";
 
 function App() {
   const personName = {
@@ -102,11 +103,21 @@ function App() {
       <RandomNumber value={10} isPositive />
 
       <Toast position="center-bottom" />
-      */}
 
       <CustomButton variant="primary" onClick={() => console.log("Clicked")}>
         Primary Button
       </CustomButton>
+      */}
+
+      <Text as="h1" size="lg">
+        Heading
+      </Text>
+      <Text as="p" size="md">
+        Paragraph
+      </Text>
+      <Text as="label" htmlFor="someId" size="sm" color="secondary">
+        Label
+      </Text>
     </div>
   );
 }
