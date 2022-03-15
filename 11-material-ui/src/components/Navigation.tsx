@@ -8,6 +8,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
+        <li>
+          <NavLink to="/typography">Typography</NavLink>
+        </li>
       </ul>
     </nav>
   );
