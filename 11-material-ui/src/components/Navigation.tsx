@@ -11,6 +11,9 @@ export const Navigation = () => {
         <li>
           <NavLink to="/typography">Typography</NavLink>
         </li>
+        <li>
+          <NavLink to="/button">Button</NavLink>
+        </li>
       </ul>
     </nav>
   );
