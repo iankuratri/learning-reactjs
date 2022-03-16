@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, ButtonGroup } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
 
@@ -54,6 +54,42 @@ export const MuiButton = () => {
         <Button variant="contained" endIcon={<SendIcon />}>
           Send
         </Button>
+      </Stack>
+
+      <h2>Button Group</h2>
+
+      <Stack direction="row">
+        <ButtonGroup
+          variant="contained"
+          aria-label="outlined primary button group"
+        >
+          <Button>One</Button>
+          <Button>Two</Button>
+          <Button>Three</Button>
+        </ButtonGroup>
+      </Stack>
+
+      <Stack direction="row">
+        <ButtonGroup
+          variant="outlined"
+          aria-label="outlined primary button group"
+        >
+          <Button>One</Button>
+          <Button>Two</Button>
+          <Button>Three</Button>
+        </ButtonGroup>
+      </Stack>
+
+      <Stack direction="row">
+        <ButtonGroup
+          variant="text"
+          aria-label="outlined primary button group"
+          orientation="vertical"
+        >
+          <Button>One</Button>
+          <Button>Two</Button>
+          <Button>Three</Button>
+        </ButtonGroup>
       </Stack>
     </Stack>
   );
