@@ -1,9 +1,24 @@
 import React from "react";
-import { Button, Stack, ButtonGroup } from "@mui/material";
+import {
+  Button,
+  Stack,
+  ButtonGroup,
+  ToggleButtonGroup,
+  ToggleButton,
+} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
 
 export const MuiButton = () => {
+  const [alignment, setAlignment] = React.useState("web");
+
+  const handleChange = (
+    event: React.MouseEvent<HTMLElement>,
+    newAlignment: string
+  ) => {
+    setAlignment(newAlignment);
+  };
+
   return (
     <Stack direction="column" spacing={2}>
       <Stack direction="row" spacing={2}>
@@ -91,6 +106,19 @@ export const MuiButton = () => {
           <Button>Three</Button>
         </ButtonGroup>
       </Stack>
+
+      <h2>Toggle Button</h2>
+
+      <ToggleButtonGroup
+        color="primary"
+        value={alignment}
+        exclusive
+        onChange={handleChange}
+      >
+        <ToggleButton value="web">Web</ToggleButton>
+        <ToggleButton value="android">Android</ToggleButton>
+        <ToggleButton value="ios">iOS</ToggleButton>
+      </ToggleButtonGroup>
     </Stack>
   );
 };
