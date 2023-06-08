@@ -1,8 +1,8 @@
 import "./App.css";
-import Counter from "./state-management/counter/Counter";
+import LoginStatus from "./state-management/auth/LoginStatus";
 
 function App() {
-  return <Counter />;
+  return <LoginStatus />;
 }
 
 export default App;
