@@ -1,14 +1,14 @@
-interface Task {
+export interface Task {
   id: number;
   title: string;
 }
 
-interface Action {
+export interface TaskAction {
   type: "ADD" | "REMOVE";
   payload: Task;
 }
 
-const taskReducer = (state: Task[], action: Action): Task[] => {
+const taskReducer = (state: Task[], action: TaskAction): Task[] => {
   const { type, payload } = action;
 
   switch (type) {
