@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "./App";
 import "./index.css";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import router from "./routing/routes";
+import { RouterProvider } from "react-router-dom";
 
 const options = {
   defaultOptions: {
@@ -27,7 +29,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     {/* Provide the client to your App */}
     <QueryClientProvider client={queryClient}>
-      <App />
+      <RouterProvider router={router} />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
